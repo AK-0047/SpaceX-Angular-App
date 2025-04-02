@@ -1,9 +1,24 @@
-mat-card {
+.dark-card-wrapper {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #ffffff;
+  }
+  
+  .dark-card {
+    background: linear-gradient(135deg, #2b2d42, #1a1a2e, #434343);
+    color: #ffffff;
     max-width: 700px;
-    margin: 40px auto;
-    padding-bottom: 16px;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+  }
+  
+  .dark-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
   }
   
   mat-card-header {
@@ -13,11 +28,12 @@ mat-card {
   mat-card-title {
     font-size: 24px;
     font-weight: 600;
+    color: #ffffff;
   }
   
   mat-card-subtitle {
     font-size: 14px;
-    color: #666;
+    color: #bbbbbb;
   }
   
   img[mat-card-image] {
@@ -27,15 +43,11 @@ mat-card {
     padding-top: 20px;
   }
   
-  mat-card-content {
-    padding: 0 24px;
-  }
-  
   mat-card-content p {
     font-size: 16px;
-    color: #444;
+    color: #dddddd;
     line-height: 1.6;
-    margin: 16px 0 8px;
+    margin: 12px 0;
   }
   
   ul {
@@ -49,20 +61,19 @@ mat-card {
     margin: 6px 0;
   }
   
-  ul li a {
-    color: #3f51b5;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 6px 12px;
-    border: 1px solid #3f51b5;
-    border-radius: 6px;
-    display: inline-block;
-    transition: all 0.3s ease;
-  }
-  
-  ul li a:hover {
-    background-color: #3f51b5;
+  .dark-link {
     color: white;
+    border: 1px solid white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 500;
     text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
   }
   
+  .dark-link:hover {
+    background-color: white;
+    color: #2b2d42;
+    text-decoration: none;
+  }
