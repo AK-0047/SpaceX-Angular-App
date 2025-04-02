@@ -1,0 +1,23 @@
+<app-missionfilter (filterByYear)="applyFilter($event)"></app-missionfilter>
+
+   <div *ngIf="loading" class="loading-container">
+     <mat-spinner></mat-spinner>
+   </div>
+   
+   <div *ngIf="!loading && launches.length > 0" class="card-container">
+     <mat-card *ngFor="let launch of launches" class="mission-card">
+       <mat-card-header>
+         <mat-card-title>{{ launch.mission_name }} ({{ launch.launch_year }})</mat-card-title>
+         <mat-card-subtitle>Flight #{{ launch.flight_number }}</mat-card-subtitle>
+       </mat-card-header>
+       <img mat-card-image [src]="launch.links.mission_patch_small" alt="Mission Patch" />
+       <mat-card-content>
+         <p><strong>Rocket:</strong> {{ launch.rocket.rocket_name }} ({{ launch.rocket.rocket_type }})</p>
+         <p>{{ launch.details || 'No mission details available.' }}</p>
+       </mat-card-content>
+       <mat-card-actions>
+         <a mat-button color="primary" [routerLink]="['/details', launch.flight_number]">View Details</a>
+       </mat-card-actions>
+     </mat-card>
+   </div>
+   
