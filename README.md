@@ -1,10 +1,53 @@
-# 101416629LabTest2Comp3133
+# 🚀 COMP 3133 | Lab Test 2 – SpaceX Mission Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+Welcome to **SpaceX Mission Explorer**, a modern Angular application built for the COMP 3133 Lab Test. This app fetches real-time SpaceX launch data from the public [SpaceX API](https://api.spacexdata.com/) and lets users explore, filter, and view detailed mission information with a clean, responsive, and fully themed UI.
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Features
+
+- 🔍 **Filter missions** by:
+  - Launch Year
+  - Launch Success (Success/Failed)
+  - Landing Success (Success/Failed)
+
+- 📦 **Fetches real-time data** from SpaceX REST API (`https://api.spacexdata.com/v3/launches`)
+- 🎨 **Dark UI with gradient themes** across all components (cards, filters, buttons)
+- 📱 **Responsive design** for all screen sizes
+- 🔗 View full **mission details**: rocket info, launch success, related articles, videos, and Wikipedia
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** Angular 17
+- **UI Library:** Angular Material
+- **Language:** TypeScript
+- **Styling:** SCSS (custom theming + responsive layout)
+- **Deployment:** Vercel (link below)
+
+---
+
+## 🔧 How to Run the App Locally
+
+> **Prerequisites:**
+> - Node.js & npm installed
+> - Angular CLI installed globally: `npm install -g @angular/cli`
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/AK-0047/SpaceX-Angular-App.git
+cd SpaceX-Angular-App
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the app
 
 ```bash
 ng serve
@@ -12,48 +55,34 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+## Deployed Link
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+**Live Demo on Vercel:** https://spacex-angular.vercel.app
 
-```bash
-ng generate component component-name
+## Folder Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── missionlist/           # List of missions
+│   │   ├── missiondetails/        # Mission detail view
+│   │   └── missionfilter/         # Filtering UI
+│   ├── models/
+│   │   └── launch.model.ts        # Launch data model
+│   ├── services/
+│   │   └── spacex.service.ts      # SpaceX API service
+│   ├── app-routing.module.ts      # Routing setup
+│   └── app.component.ts           # Root component
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Concepts Covered
 
-```bash
-ng generate --help
-```
+- Angular components, services, and routing
+- Angular Material UI and theming
+- Reactive API data fetching via HttpClient
+- Dynamic routing with :id
+- Custom CSS and SCSS theming with gradients
+- Responsive layout with Flexbox
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Author Name: Anshul Kamboya
