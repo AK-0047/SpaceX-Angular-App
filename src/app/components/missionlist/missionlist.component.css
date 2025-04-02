@@ -3,23 +3,26 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
   }
   
   .mission-card {
     width: 300px;
+    transition: transform 0.3s ease;
   }
   
-  .loading-container {
+  .mission-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .loading-container,
+  .no-results {
     display: flex;
     justify-content: center;
     margin-top: 40px;
-  }
-
-  .no-results {
+    font-size: 18px;
+    color: #777;
     text-align: center;
-    margin-top: 30px;
-    font-size: 1.2rem;
-    color: #888;
-  }  
+  }
   

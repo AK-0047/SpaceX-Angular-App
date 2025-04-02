@@ -1,3 +1,4 @@
+<div style="display: flex; flex-wrap: wrap;">
 <mat-form-field appearance="fill">
     <mat-label>Launch Year</mat-label>
     <mat-select [(ngModel)]="selectedYear">
@@ -24,6 +25,11 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
+</div>
   
-  <button mat-raised-button color="primary" (click)="onFilter()">Apply Filter</button>
-  
+  <div style="margin-top: 10px;">
+    <button mat-raised-button color="primary" (click)="onFilter()">Apply Filter</button>
+    <button mat-stroked-button color="warn" (click)="onReset()" style="margin-left: 10px;">
+      Reset Filters
+    </button>
+  </div>    

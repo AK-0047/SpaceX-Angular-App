@@ -63,5 +63,20 @@ export class MissionlistComponent implements OnInit {
         this.loading = false;
       }
     });    
+  }
+  
+  resetAllFilters(): void {
+    this.loading = true;
+    this.spacexService.getAllLaunches().subscribe({
+      next: (data) => {
+        this.launches = data;
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error fetching all launches:', err);
+        this.launches = [];
+        this.loading = false;
+      }
+    });
   }  
 }

@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class MissionfilterComponent {
     @Output() filterChanged = new EventEmitter<any>();
+    @Output() resetFilters = new EventEmitter<void>();
 
     selectedYear: string = '';
     launchSuccess: string = '';
@@ -38,4 +39,11 @@ export class MissionfilterComponent {
         landSuccess: this.landSuccess
       });
     }
+
+    onReset(): void {
+      this.selectedYear = '';
+      this.launchSuccess = '';
+      this.landSuccess = '';
+      this.resetFilters.emit();
+    }    
 }
