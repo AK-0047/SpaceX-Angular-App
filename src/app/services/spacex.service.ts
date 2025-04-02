@@ -7,7 +7,7 @@ import { Launch } from '../models/launch.model';
   providedIn: 'root'
 })
 export class SpacexService {
-  private baseUrl = 'https://api.spacexdata.com/v3/launches';
+  public baseUrl = 'https://api.spacexdata.com/v3/launches';
 
   constructor(private http: HttpClient) {}
 
@@ -22,4 +22,8 @@ export class SpacexService {
   getLaunchById(id: number): Observable<Launch> {
     return this.http.get<Launch>(`${this.baseUrl}/${id}`);
   }
+
+  getCustomLaunches(queryUrl: string): Observable<Launch[]> {
+    return this.http.get<Launch[]>(queryUrl);
+  }  
 }

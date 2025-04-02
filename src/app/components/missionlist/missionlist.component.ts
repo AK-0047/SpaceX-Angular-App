@@ -33,17 +33,35 @@ export class MissionlistComponent implements OnInit {
     });
   }
 
-  applyFilter(year: string): void {
+  applyAdvancedFilter(filter: { year: string; launchSuccess: string; landSuccess: string }) {
     this.loading = true;
-    this.spacexService.getLaunchesByYear(year).subscribe({
+    let queryParams: string[] = [];
+  
+    if (filter.year) queryParams.push(`launch_year=${filter.year}`);
+    if (filter.launchSuccess) queryParams.push(`launch_success=${filter.launchSuccess}`);
+    if (filter.landSuccess) queryParams.push(`land_success=${filter.landSuccess}`);
+  
+    const query = [
+      filter.launchSuccess ? `launch_success=${filter.launchSuccess}` : '',
+      filter.landSuccess ? `land_success=${filter.landSuccess}` : '',
+      filter.year ? `launch_year=${filter.year}` : ''
+    ]
+      .filter(q => q)
+      .join('&');
+    
+    const url = `${this.spacexService.baseUrl}?${query}`;
+    console.log('API URL:', url);
+
+    this.spacexService.getCustomLaunches(url).subscribe({
       next: (data) => {
         this.launches = data;
         this.loading = false;
       },
       error: (err) => {
-        console.error('Error filtering by year', err);
+        console.error('Error filtering launches:', err);
+        this.launches = [];
         this.loading = false;
       }
-    });
+    });    
   }  
 }

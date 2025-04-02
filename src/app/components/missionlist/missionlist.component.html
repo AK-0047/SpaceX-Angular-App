@@ -1,4 +1,8 @@
-<app-missionfilter (filterByYear)="applyFilter($event)"></app-missionfilter>
+<app-missionfilter (filterChanged)="applyAdvancedFilter($event)"></app-missionfilter>
+
+<div *ngIf="!loading && launches.length === 0" class="no-results">
+    <p>No missions match your filter criteria.</p>
+  </div>  
 
    <div *ngIf="loading" class="loading-container">
      <mat-spinner></mat-spinner>

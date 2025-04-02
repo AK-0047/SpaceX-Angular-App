@@ -13,21 +13,29 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./missionfilter.component.css']
 })
 export class MissionfilterComponent {
-  @Output() filterByYear = new EventEmitter<string>();
+    @Output() filterChanged = new EventEmitter<any>();
 
-  selectedYear: string = '';
-  years: string[] = [];
+    selectedYear: string = '';
+    launchSuccess: string = '';
+    landSuccess: string = '';
 
-  ngOnInit(): void {
-    const currentYear = new Date().getFullYear();
-    for (let y = 2006; y <= currentYear; y++) {
-      this.years.push(y.toString());
+    years: string[] = [];
+    boolOptions: { label: string; value: string }[] = [
+      { label: 'Successful', value: 'true' },
+      { label: 'Failed', value: 'false' }
+    ];
+    ngOnInit(): void {
+      const currentYear = new Date().getFullYear();
+      for (let y = 2006; y <= currentYear; y++) {
+        this.years.push(y.toString());
+      }
     }
-  }
 
-  onFilter() {
-    if (this.selectedYear) {
-      this.filterByYear.emit(this.selectedYear);
+    onFilter(): void {
+      this.filterChanged.emit({
+        year: this.selectedYear,
+        launchSuccess: this.launchSuccess,
+        landSuccess: this.landSuccess
+      });
     }
-  }
 }

@@ -15,4 +15,11 @@
     justify-content: center;
     margin-top: 40px;
   }
+
+  .no-results {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #888;
+  }  
   
