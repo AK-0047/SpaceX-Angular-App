@@ -1,5 +1,128 @@
+.filter-container {
+background-color: #f8f9fa;
+padding: 30px;
+margin: 24px auto;
+border-radius: 16px;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+max-width: 1000px;
+transition: all 0.3s ease;
+}
+
+.filter-container:hover {
+box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+transform: translateY(-2px);
+}
+
+.filter-group {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+margin-bottom: 24px;
+}
+
+/* Base styles for form field */
 mat-form-field {
-    margin: 0 10px 10px 0;
-    min-width: 180px;
-  }
-  
+min-width: 220px;
+flex: 1;
+transition: all 0.2s ease;
+}
+
+mat-form-field:focus-within {
+transform: scale(1.02);
+}
+
+/* Input box styling */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+color: #d0d0d0;
+transition: color 0.3s ease;
+}
+
+::ng-deep .mat-form-field-appearance-outline:hover .mat-form-field-outline {
+color: #a0a0a0;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+color: #3f51b5;
+}
+
+/* Input text styling */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+padding: 0.5em 0;
+}
+
+::ng-deep .mat-select-value-text {
+font-weight: 500;
+}
+
+::ng-deep .mat-form-field-label {
+color: #767676;
+font-weight: 500;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label {
+color: #3f51b5;
+}
+
+/* Dropdown arrow styling */
+::ng-deep .mat-select-arrow {
+color: #767676;
+transition: transform 0.3s ease;
+}
+
+::ng-deep .mat-select-panel {
+border-radius: 8px !important;
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-select-arrow {
+color: #3f51b5;
+transform: rotate(180deg);
+}
+
+.button-group {
+display: flex;
+justify-content: center;
+gap: 24px;
+margin-top: 10px;
+}
+
+button {
+min-width: 140px;
+font-weight: 500;
+border-radius: 28px;
+padding: 8px 24px;
+transition: all 0.3s ease;
+}
+
+button:first-child {
+background-color: #3f51b5;
+color: white;
+}
+
+button:last-child {
+background-color: transparent;
+border: 2px solid #3f51b5;
+color: #3f51b5;
+}
+
+button:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+.filter-group {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.button-group {
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 80%;
+}
+}
